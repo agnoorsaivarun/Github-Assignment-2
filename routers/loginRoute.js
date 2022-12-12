@@ -10,9 +10,11 @@ app.use(bodyParser.json())
 app.post("/",async (req,res)=>{
     const { email, password } = req.body
     try {
-        const user=await userModel.find({email:email})
+        let user=await userModel.findOne({email:email})
+        // console.log(user);
         if(user){
             bcrypt.compare(password,user.password, (e,result)=>{
+                // console.log(result,e);
                if(e) return res.status(400).json({message:"login failed"})
                if(result){
                 const token=jwt.sign({
