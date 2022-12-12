@@ -32,4 +32,4 @@ app.use('/posts', posts)
 app.use('/register', registerRoute)
 app.use('/login', loginRoute)
 
-app.listen(5000, () => { console.log("server is running at 5000 port") })
+app.listen(3000, () => { console.log("server is running at 3000 port") })
