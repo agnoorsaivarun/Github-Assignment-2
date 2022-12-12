@@ -23,7 +23,8 @@ app.post("/",async (req,res)=>{
                     status: "success",
                     token: token
                 })
-               }   
+               }
+               else return res.json({message:"invalid credentials"})   
             })
         }
         else return res.status(404).json({message:"user not found"})
